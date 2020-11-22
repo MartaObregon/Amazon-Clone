@@ -21,7 +21,7 @@ function Product() {
             </div>
             <img src="https://m.media-amazon.com/images/I/71kbhZBe3TL._AC_UL320_.jpg"></img>
 
-            <button style={{color:'red'}}>Add to basket</button>
+            <button>Add to basket</button>
         </div>
     )
 }
