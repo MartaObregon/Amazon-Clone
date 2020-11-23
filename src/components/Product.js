@@ -2,26 +2,26 @@ import React from 'react'
 import './Product.css'
 import StarIcon from '@material-ui/icons/Star'
 
-function Product() {
+function Product({title, image, price, rating}) {
+    
     return (
         <div className="product">
             <div className="product_info">
-                <p>Loungefly Star Wars Baby Yoda en cuna The Mandalorian Womens doble correa hombro bolso bolso</p>
+                <p>{title}</p>
                 <p className="product_price">
                     <small>EUR</small>
-                    <strong>73.31</strong>
+                    <strong>{price}</strong>
                 </p>
                 <div className="product_rating">
-                    <StarIcon style={{color:'yellow'}}/>
-                    <StarIcon style={{color:'yellow'}}/>
-                    <StarIcon style={{color:'yellow'}}/>
-                    <StarIcon style={{color:'yellow'}}/>
-                    <StarIcon style={{color:'yellow'}}/>
+                {Array(rating).fill().map((_,id)=>(
+                    <StarIcon style={{color:'#f0c14b'}}/>
+                ))}
+                    
                 </div>
             </div>
-            <img src="https://m.media-amazon.com/images/I/71kbhZBe3TL._AC_UL320_.jpg"></img>
+            <img src={image}></img>
 
-            <button>Add to basket</button>
+            <button>Add to Basket</button>
         </div>
     )
 }
