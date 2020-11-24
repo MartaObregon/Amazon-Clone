@@ -2,6 +2,7 @@ import React from 'react'
 import './Subtotal.css'
 import CurrencyFormat from 'react-currency-format'
 import {useStateValue} from '../StateProvider'
+import { getBasketTotal } from '../reducer';
 
 function Subtotal() {
     const [{basket}, dispatch] = useStateValue();
@@ -12,14 +13,7 @@ function Subtotal() {
             renderText={(value)=>(
                 <>
                 <p>
-                    Subtotal ({basket?.length} items): 
-                    {
-                        basket.forEach((elem)=>{
-                            console.log(elem.price)
-                            return <strong>0{elem.price}</strong>
-                        })
-                    }
-                    
+                    Subtotal ({basket.length} items): <strong>{value}</strong>
                     
                 </p>
                 <small className="subtotal_gift">
@@ -28,10 +22,10 @@ function Subtotal() {
                 </>
             )}
             decimalScale={2}
-            value={0}//subtotal of basket function get basket
+            value={getBasketTotal(basket)}
             displayType={'text'}
-            thousantSeparator={true}
-            prefix={'EUR'}
+            thousandSeparator={true}
+            suffix={" EUR"}
             />
             <button>Proceed to Checkout</button>
         </div>

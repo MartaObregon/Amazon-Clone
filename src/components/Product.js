@@ -33,7 +33,7 @@ function Product({title, image, price, rating, id}) {
                     <strong>{price}</strong>
                 </p>
                 <div className="product_rating">
-                {Array(rating).fill().map((_,id)=>(
+                {Array(rating).fill().map(()=>(
                     <StarIcon style={{color:'#f0c14b'}}/>
                 ))}
                     
