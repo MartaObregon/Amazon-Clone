@@ -7,6 +7,7 @@ import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format'
 import { getBasketTotal } from '../reducer'
 import axios from '../axios'
+import {db} from '../firebase'
 
 
 function Payment() {
@@ -34,6 +35,8 @@ function Payment() {
         getClientSecret();
     }, [basket])
 
+    console.log('THE SECRET IS >>>>', clientSecret)
+
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
 
@@ -46,9 +49,26 @@ function Payment() {
             }
         }).then(({paymentIntent})=>{
             //paymentIntent = payment confirmation (how stripe calls it)
+
+            db.collection('users')
+              .doc(user?.uid)
+              .collection('orders')
+              .doc(paymentIntent.id)
+              .set({
+                  basket: basket,
+                  amount: paymentIntent.amount,
+                  created: paymentIntent.created
+              })
+
+
             setSucceeded(true)
             setError(null)
             setProcessing(false);
+
+            dispatch({
+                type:'EMPTY_BASKET'
+            })
+
 
             history.replace('/orders')
         })
@@ -94,7 +114,7 @@ function Payment() {
                 </div>
                 <div className="payment_section">
                     <div className="payment_title">
-                        <h3>Payment Method</h3>
+                        <h4>Payment Method</h4>
                     </div>
                     <div className="payment_details">
                         {/* Stripe magic */}

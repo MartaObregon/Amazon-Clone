@@ -1,0 +1,12 @@
+.orders{
+    padding: 20px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.orders > h1 {
+    margin: 30px 0;
+}
