@@ -6,10 +6,11 @@
     position: sticky;
     top:0;
     z-index: 100;
+    width: 100%;
 }
 
 .header_logo{
-    width: 100px;
+    max-width: 100px;
     object-fit: contain;
     margin: 0 20px;
     margin-top: 18px;
@@ -26,6 +27,7 @@
     padding:10px;
     border:none;
     width: 100%;
+    min-width: 100px;
 }
 .header_searchIcon{
     padding:5px;
