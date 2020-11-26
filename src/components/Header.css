@@ -8,12 +8,15 @@
     z-index: 100;
     width: 100%;
 }
-
+.header>a{
+    width: 20%;
+    margin: 0 20px;
+    margin-top: 18px;
+}
 .header_logo{
     max-width: 100px;
     object-fit: contain;
-    margin: 0 20px;
-    margin-top: 18px;
+    
 }
 .header_search{
     display: flex;
@@ -42,8 +45,11 @@
     font-weight: 800;
 }
 .header_nav{
+    width: 40%;
     display: flex;
     justify-content: space-evenly;
+    margin-left: 20px;
+    max-width: 500px;
 }
 .header_option{
     color:white;

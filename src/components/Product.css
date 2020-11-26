@@ -15,9 +15,10 @@
 
 .product>img{
     max-height: 200px;
-    width: 100%;
+    width: 90%;
     object-fit: contain;
     margin-bottom: 15px;
+    min-width: 100px;
 
 }
 .product > button{
@@ -26,6 +27,7 @@
     margin-top:10px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
+    max-width: 200px;
     
 }
 

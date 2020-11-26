@@ -5,6 +5,7 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import {Link} from 'react-router-dom'
 import {useStateValue} from '../StateProvider'
 import {auth} from '../firebase'
+import {Navbar, Nav, Button, NavDropdown, Form, FormControl} from 'react-bootstrap'
 
 function Header() {
 
@@ -18,6 +19,7 @@ function Header() {
     }
 
     return (
+       
         <div className='header'>
             <Link to="/">
             <img className="header_logo" src='http://pngimg.com/uploads/amazon/amazon_PNG11.png' alt='logo'></img>
@@ -57,7 +59,9 @@ function Header() {
                 </Link>
                 
             </div>
-        </div>
+        </div> 
+
+       
     )
 }
 
